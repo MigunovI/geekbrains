@@ -1,6 +1,6 @@
 /* Подсчитайте средний возраст пользователей в таблице users.				 */
 
-SELECT ROUND(AVG(DATE_FORMAT(FROM_DAYS(TO_DAYS(now()) - TO_DAYS(birthday_at)), '%Y') + 0), 2) as age
+SELECT ROUND(AVG(timestampdiff(Year, birthday_at, now())), 2) as age
 FROM example.users;
 
 /* Подсчитайте количество дней рождения, которые приходятся на каждый из дней недели.
